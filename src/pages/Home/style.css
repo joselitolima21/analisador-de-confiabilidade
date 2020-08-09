@@ -1,0 +1,9 @@
+.input-upload {
+    display: none;
+}
+
+.box-upload {
+    width: 120px;
+    border: 2px solid #000;
+    text-align: center;
+}

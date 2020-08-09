@@ -16,10 +16,11 @@ function createWindow() {
     minWidth: 900,
     minHeight: 600,
     webPreferences: {
+      devTools: true,
       nodeIntegration: true
     },
-    frame: true
-
+    frame: true,
+    show: false
   })
 
   // and load the index.html of the app.
@@ -39,6 +40,10 @@ function createWindow() {
   })
 
   win.removeMenu()
+
+  win.once('ready-to-show', () => {
+    win.show()
+  })
 }
 
  
