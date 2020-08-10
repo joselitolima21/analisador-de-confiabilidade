@@ -1,9 +1,206 @@
+/* Configurando a grid */
+.main {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-rows: 18% 6% 76%;
+    grid-template-columns: 100%;
+    grid-template-areas: 'buttonsUpload' 'changeSheet' 'graphs';
+}
+
+/* Linha dos botões */
+.changeSheet {
+    display: flex;
+    grid-area: changeSheet;
+    padding-left: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonsUpload {
+    display: flex;
+    grid-area: buttonsUpload;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.inputText {
+    border: rgb(182, 181, 181) solid 1.5px;
+    border-radius: 3px;
+    width: 180px;
+    height: 32px;
+    padding-top: 2px;
+    padding-left: 2px;
+}
+
+.inputText:focus {
+    outline: none;
+    background-color: rgba(211, 210, 210, 0.2);
+}
+
+.inputText::-webkit-input-placeholder{
+    text-align: center;
+    color: rgb(54, 54, 54);
+    font-size: 16px;
+    font-family: 'Roboto Light';
+}
+
 .input-upload {
     display: none;
 }
 
 .box-upload {
-    width: 120px;
-    border: 2px solid #000;
-    text-align: center;
+    display: flex;
+    width: 180px;
+    height: 32px;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .4) inset;
+    border-color: #a88734 #9c7e31 #846a29;
+    background: #f4d078;
+    background: -webkit-linear-gradient(top, #f7dfa5, #f0c14b);
+    background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6px;
+    margin-top: 6px;
+}
+
+.box-upload:hover {
+    background-color: #d1a431; 
+    background: -webkit-linear-gradient(top, #ddc794, #f0c14b);
+    background: linear-gradient(to bottom, #ddc794, #f0c14b);
+}
+
+label {
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto Light';
+    color: rgb(54, 54, 54);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Linha das infos */
+
+.infosSheet {
+    display: flex;
+    align-items: center;
+    padding-left: 6px;
+}
+
+h1 {
+    font-family: 'Roboto Medium';
+    font-size: 20px;
+    color: #3a8011;
+    margin-left: 6px;
+}
+
+h1 .nenhum {
+    font-family: 'Roboto Medium';
+    font-size: 20px;
+    color: #333333;
+    margin-left: 6px;
+}
+
+.calculate {
+    display: flex;
+    width: 180px;
+    height: 32px;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .4) inset;
+    border-color: #a88734 #9c7e31 #846a29;
+    background: #f4d078;
+    background: -webkit-linear-gradient(top, #f7dfa5, #f0c14b);
+    background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+    align-items: center;
+    justify-content: center;
+    margin-left: 6px;
+    font-family: 'Roboto Light';
+    color: rgb(54, 54, 54);
+}
+
+.calculate:hover {
+    background-color: #d1a431; 
+    background: -webkit-linear-gradient(top, #ddc794, #f0c14b);
+    background: linear-gradient(to bottom, #ddc794, #f0c14b);
+}
+/* Linha dos gráficos */
+
+.graphs {
+    grid-area: graphs;
+    display: grid;
+    grid-template-rows: 8% 92%;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-areas: 
+        'expCurve weiCurve gamaCurve logCurv'
+        'showCurve showCurve showCurve showCurve';
+    width: 95%;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    justify-self: center;
+}
+
+.expCurve {
+    grid-area: expCurve;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #8F8F8F;
+    border-left: 1px solid #8F8F8F;
+    border-right: 1px solid #8F8F8F;
+    border-top-left-radius: 20px;
+}
+
+.weiCurve {
+    grid-area: weiCurve;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #8F8F8F;
+    border-left: 1px solid #8F8F8F;
+    border-right: 1px solid #8F8F8F;
+}
+
+.gamaCurve {
+    grid-area: gamaCurve;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #8F8F8F;
+    border-left: 1px solid #8F8F8F;
+    border-right: 1px solid #8F8F8F;
+}
+
+.logCurv {
+    grid-area: logCurv;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #8F8F8F;
+    border-left: 1px solid #8F8F8F;
+    border-right: 1px solid #8F8F8F;
+    border-top-right-radius: 20px;
+}
+
+button:hover {
+    background-color: #b1b0b0 !important; 
+}
+
+h2 {
+    font-family: 'Roboto Light';
+    font-size: 20px;
+}
+
+.showCurve {
+    grid-area: showCurve;
+    background-color: #ffffff;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: 1px solid #8F8F8F;
 }

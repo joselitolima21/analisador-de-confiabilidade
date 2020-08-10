@@ -1,46 +1,121 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './style.css'
-const XLSX = window.require('xlsx');
-
+import readSheet from '../../functions/excelReader'
+import check from '../../icons/check.svg'
+import ask from '../../icons/ask.svg'
 
 export default function Home({ history }) {
 
-    function handleUploadFile(event) {
-        const file = event.target.files[0]
+    const [curve, setCurve] = useState('exp')
+    const [sheetName, setSheetName] = useState('')
+    const [name, setName] = useState(null)
+    const [path, setPath] = useState('')
 
-        var workbook = XLSX.readFile(file.path,{});
-
-        const ref = workbook.Sheets['dados1']['!ref']
-        const regExp = /(\D)(\d{1,}):(\D)(\d{1,})/;
-        const result = regExp.exec(ref)
-        
-        const colunaInicial = result[1]
-        const colunaFinal = result[2]
-        const linhaInicial = result[3]
-        const linhaFinal = result[4]
-
-        if(colunaInicial===colunaFinal) {
-            // Iterar pela mesma coluna
-            
-        } else {
-            // Iterar pela mesma linha
-        }
+    function handleUploadSheet() {
+        console.log(readSheet(path, sheetName))
     }
 
     return (
-        <>
-            <p>Home</p>
-            <div className="box-upload">
-                <label>
-                    Abrir arquivo
-                <input
-                        className='input-upload'
-                        type="file"
-                        accept='.xlsx,.xlsm,.xlsb,.xls'
-                        onChange={(event) => handleUploadFile(event)}
-                    />
-                </label>
+        <div className='main'>
+            <div className='buttonsUpload'>
+
+
+                <div className="box-upload">
+                    <label>
+                        Abrir arquivo
+                        <input
+                            className='input-upload'
+                            type="file"
+                            accept='.xlsx,.xlsm,.xlsb,.xls'
+                            onChange={(event) => { setPath(event.target.files[0].path); setName(event.target.files[0].name) }}
+                        />
+                    </label>
+                </div>
+
+                <div className='infosSheet'>
+                    {name && (
+                        <>
+                            <img src={check} alt="check" />
+                            <h1>{name}</h1>    
+                        </>
+                    )}
+
+                    {!name && (
+                        <>
+                            <img src={ask} alt="ask" />
+                            <h1 className='nenhum'>Nenhum Arquivo</h1>
+                        </>
+                    )}
+                </div>
+
             </div>
-        </>
+
+            <div className='changeSheet'>
+                <input
+                    className='inputText'
+                    type='text'
+                    placeholder='Nome da planilha'
+                    onChange={(event) => setSheetName(event.target.value)}
+                />
+
+                <button
+                    className='calculate'
+                    onClick={() => handleUploadSheet()}
+                >
+                    Calcular
+                    </button>
+            </div>
+
+            <div className='graphs'>
+
+                <button
+                    className="expCurve"
+                    style={curve === 'exp' ? {
+                        backgroundColor: '#ffffff'
+                    } : {}}
+                    onClick={() => setCurve('exp')}
+                >
+                    <h2>Exponencial</h2>
+                </button>
+
+                <button
+                    className="weiCurve"
+                    style={curve === 'wei' ? {
+                        backgroundColor: '#ffffff'
+                    } : {}}
+                    onClick={() => setCurve('wei')}
+                >
+                    <h2>Weibull</h2>
+
+                </button>
+
+                <button
+                    className="gamaCurve"
+                    style={curve === 'gama' ? {
+                        backgroundColor: '#ffffff'
+                    } : {}}
+                    onClick={() => setCurve('gama')}
+                >
+                    <h2>Gama</h2>
+
+                </button>
+
+                <button
+                    className="logCurv"
+                    style={curve === 'log' ? {
+                        backgroundColor: '#ffffff'
+                    } : {}}
+                    onClick={() => setCurve('log')}
+                >
+                    <h2>Log-normal</h2>
+
+                </button>
+
+                <div className="showCurve">
+                </div>
+
+            </div>
+
+        </div>
     )
 };
