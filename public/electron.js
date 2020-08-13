@@ -14,9 +14,11 @@ function createWindow() {
     width: 900,
     height: 600,
     minWidth: 900,
-    minHeight: 600,
+    minHeight: 600,   
+    maxWidth: 900,
+    maxHeight: 600,
     webPreferences: {
-      devTools: true,
+      devTools: isDev ? true : false,
       nodeIntegration: true
     },
     frame: true,
@@ -25,11 +27,11 @@ function createWindow() {
 
   // and load the index.html of the app.
   win.loadURL(
-    isDev ? "http://localhost:3000/" : `file://${path.join(__dirname, "..build/index.html")}`
+    isDev ? "http://localhost:3000/" : `file://${path.join(__dirname,"../build/index.html")}`
   )
 
   // Open the DevTools.
-  win.webContents.openDevTools()
+  isDev ? win.webContents.openDevTools() : null
 
   // Emitido quando a janela é fechada.
   win.on('closed', () => {

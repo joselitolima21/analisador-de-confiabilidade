@@ -3,6 +3,20 @@
   "version": "1.0.0",
   "main": "public/electron.js",
   "license": "MIT",
+  "description": "Aplicativo para a análise de confiabiliade",
+  "author": "Joselito Lima",
+  "build": {
+    "appId": "com.analisador.app",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "public"
+    },
+    "productName": "Analisador de Confiabilidade"
+  },
+  "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -10,6 +24,7 @@
     "chart.js": "^2.9.3",
     "cross-env": "^7.0.0",
     "electron-is-dev": "^1.1.0",
+    "mathjs": "^7.1.0",
     "react": "^16.12.0",
     "react-chartjs-2": "^2.10.0",
     "react-dom": "^16.12.0",

@@ -1,20 +1,22 @@
 /* Configurando a grid */
+
 .main {
     display: grid;
     width: 100%;
     height: 100%;
     grid-template-rows: 18% 6% 76%;
-    grid-template-columns: 100%;
-    grid-template-areas: 'buttonsUpload' 'changeSheet' 'graphs';
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 'buttonsUpload infoResult' 'changeSheet infoResult' 'graphs graphs';
 }
 
 /* Linha dos botões */
+
 .changeSheet {
     display: flex;
     grid-area: changeSheet;
     padding-left: 30px;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
 }
 
 .buttonsUpload {
@@ -38,7 +40,7 @@
     background-color: rgba(211, 210, 210, 0.2);
 }
 
-.inputText::-webkit-input-placeholder{
+.inputText::-webkit-input-placeholder {
     text-align: center;
     color: rgb(54, 54, 54);
     font-size: 16px;
@@ -68,7 +70,7 @@
 }
 
 .box-upload:hover {
-    background-color: #d1a431; 
+    background-color: #d1a431;
     background: -webkit-linear-gradient(top, #ddc794, #f0c14b);
     background: linear-gradient(to bottom, #ddc794, #f0c14b);
 }
@@ -82,7 +84,6 @@ label {
     align-items: center;
     justify-content: center;
 }
-
 
 /* Linha das infos */
 
@@ -99,7 +100,7 @@ h1 {
     margin-left: 6px;
 }
 
-h1 .nenhum {
+#nenhum {
     font-family: 'Roboto Medium';
     font-size: 20px;
     color: #333333;
@@ -126,10 +127,11 @@ h1 .nenhum {
 }
 
 .calculate:hover {
-    background-color: #d1a431; 
+    background-color: #d1a431;
     background: -webkit-linear-gradient(top, #ddc794, #f0c14b);
     background: linear-gradient(to bottom, #ddc794, #f0c14b);
 }
+
 /* Linha dos gráficos */
 
 .graphs {
@@ -137,9 +139,7 @@ h1 .nenhum {
     display: grid;
     grid-template-rows: 8% 92%;
     grid-template-columns: 25% 25% 25% 25%;
-    grid-template-areas: 
-        'expCurve weiCurve gamaCurve logCurv'
-        'showCurve showCurve showCurve showCurve';
+    grid-template-areas: 'expCurve weiCurve gamaCurve logCurv' 'showCurve showCurve showCurve showCurve';
     width: 95%;
     padding-bottom: 15px;
     padding-top: 15px;
@@ -189,7 +189,7 @@ h1 .nenhum {
 }
 
 button:hover {
-    background-color: #b1b0b0 !important; 
+    background-color: #b1b0b0 !important;
 }
 
 h2 {
@@ -203,4 +203,68 @@ h2 {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     border: 1px solid #8F8F8F;
+}
+
+.graph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chartjs-render-monitor {
+    width: 92vw !important;
+    height: 64vh !important;
+    font-size: 24px
+}
+
+.infoResult {
+    grid-area: infoResult;
+    display: grid;
+    grid-template-rows: 70% 30%;
+    grid-template-columns: 100%;
+    grid-template-areas: 'result' 'log';
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Roboto light';
+}
+
+.weiDiv {
+    display: flex;
+}
+
+.weiButton {
+    display: flex;
+    width: 180px;
+    height: 32px;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .4) inset;
+    border-color: #a88734 #9c7e31 #846a29;
+    background: #f4d078;
+    background: -webkit-linear-gradient(top, #f7dfa5, #f0c14b);
+    background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+    align-items: center;
+    justify-content: center;
+    margin-left: 12px;
+    font-family: 'Roboto Light';
+    color: rgb(54, 54, 54);
+}
+
+.weiButton:hover {
+    background-color: #d1a431;
+    background: -webkit-linear-gradient(top, #ddc794, #f0c14b);
+    background: linear-gradient(to bottom, #ddc794, #f0c14b);
+}
+
+.log {
+    font-family: 'Roboto medium';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: crimson;
 }

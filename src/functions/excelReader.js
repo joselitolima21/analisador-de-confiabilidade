@@ -36,7 +36,7 @@ export default function readSheet(path,sheetName) {
             return dados
         }
         catch {
-            return 'ocorreu algum erro' 
+            return 'erro' 
         }
     }
 
